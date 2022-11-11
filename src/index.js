@@ -5,6 +5,7 @@ const { engine } = require('express-handlebars')
 const app = express()
 const port = 3000
 
+app.use(express.static(path.join(__dirname,'public'))) //set đường dẫn file tĩnh vào thư mục public
 app.use(morgan('combined'))
 
 app.engine('hbs', engine({
