@@ -23,8 +23,7 @@
   },
   "homepage": "https://github.com/tangdukthd/learn_nodejs_blog#readme",
   "lint-staged": {
-    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write src/**/*.{js,json,scss,css,html}",
-    "*.{json,js}": "prettier --single-quote --trailing-comma all --tab-width 4 --write src/**/*.{js,json,scss,css,html}"
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
   },
   "husky": {
     "hooks": {
@@ -36,7 +35,7 @@
     "express-handlebars": "^6.0.6"
   },
   "devDependencies": {
-    "husky": "^8.0.2",
+    "husky": "^4.2.5",
     "lint-staged": "^13.0.3",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20",
