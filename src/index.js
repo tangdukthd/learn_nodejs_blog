@@ -7,22 +7,26 @@ const { stringify } = require('querystring');
 const app = express();
 const port = 3000;
 const route = require('./routes');
+const db = require('./config/db/index');
+
+//Connect to DB
+db.connect();
 
 app.use(express.static(path.join(__dirname, 'public'))); //set đường dẫn file tĩnh vào thư mục public
 app.use(
     express.urlencoded({
-    extended: true,
-  }),
+        extended: true,
+    }),
 );
 app.use(express.json());
 // app.use(morgan('combined'))
 
 //Template engine
 app.engine(
-  'hbs',
-  engine({
-    extname: '.hbs',
-  }),
+    'hbs',
+    engine({
+        extname: '.hbs',
+    }),
 );
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
@@ -31,5 +35,5 @@ app.set('views', path.join(__dirname, 'resources/views'));
 route(app);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+    console.log(`Example app listening on port ${port}`);
 });
