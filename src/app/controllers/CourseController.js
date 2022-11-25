@@ -23,7 +23,13 @@ class CourseController {
 
     //[POST] /courses/store
     store(req, res, next) {
-        res.json(req.body);
+        const formData = req.body;
+        formData.image = `https://i.ytimg.com/vi/${req.body.videoID}/hq720.jpg`;
+        const course = new Course(formData);
+        course
+            .save()
+            .then(() => res.redirect('/'))
+            .catch((error) => {});
     }
 }
 
