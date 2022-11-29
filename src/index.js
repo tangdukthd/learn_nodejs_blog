@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const { engine } = require('express-handlebars');
 const { stringify } = require('querystring');
+const methodOverride = require('method-override');
 
 const app = express();
 const port = 3000;
@@ -20,6 +21,8 @@ app.use(
 );
 app.use(express.json());
 // app.use(morgan('combined'))
+
+app.use(methodOverride('_method'));
 
 //Template engine
 app.engine(
