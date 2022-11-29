@@ -2,7 +2,6 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const { engine } = require('express-handlebars');
-const { stringify } = require('querystring');
 const methodOverride = require('method-override');
 
 const app = express();
