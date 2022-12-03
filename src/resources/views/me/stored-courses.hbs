@@ -22,6 +22,11 @@
                     data-id="{{this._id}}">Xóa</a>
                 </td>
             </tr>
+            {{else}}
+              <td colspan="5" class="text-center">
+                Bạn chưa có khóa học nào. 
+                <a href="/courses/create">Tạo khóa học</a>
+              </td>
             {{/each}}
         </tbody>
     </table>
