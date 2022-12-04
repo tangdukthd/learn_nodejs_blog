@@ -1,13 +1,13 @@
 <div class="mt-4">
-    <h3>Khóa học của tôi</h3>
-    <a href="/me/trash/courses">Thùng rác</a>
+    <h3>My courses</h3>
+    <a href="/me/trash/courses">Trash ({{deletedCount}})</a>
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Tên khóa học</th>
+                <th scope="col">Course name</th>
                 <th scope="col">Video ID</th>
-                <th scope="col" colspan="2">Thời gian tạo</th>
+                <th scope="col" colspan="2">Created At</th>
             </tr>
         </thead>
         <tbody>
@@ -18,9 +18,9 @@
                 <td>{{this.videoID}}</td>
                 <td>{{this.createdAt}}</td>
                 <td>
-                    <a href="/courses/{{this._id}}/edit" class="btn btn-link">Sửa</a>
+                    <a href="/courses/{{this._id}}/edit" class="btn btn-link">Edit</a>
                     <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#delete-course-modal"
-                    data-id="{{this._id}}">Xóa</a>
+                    data-id="{{this._id}}">Delete</a>
                 </td>
             </tr>
             {{else}}
