@@ -13,12 +13,17 @@ const db = require('./config/db/index');
 //Connect to DB
 db.connect();
 
-app.use(express.static(path.join(__dirname, 'public'))); //set đường dẫn file tĩnh vào thư mục public
+//set đường dẫn file tĩnh vào thư mục public
+app.use(express.static(path.join(__dirname, 'public')));
+
+//middleware cho phép nhận các giá trị client gửi lên qua req.body
 app.use(
     express.urlencoded({
         extended: true,
     }),
 );
+
+//middleware cho phép nhận các giá trị client gửi lên với kiểu dữ liệu json
 app.use(express.json());
 // app.use(morgan('combined'))
 
@@ -27,7 +32,7 @@ app.use(methodOverride('_method'));
 //Custom middleware
 app.use(SortMiddleware);
 
-//Template engine
+//Template engine (handlebar)
 app.engine(
     'hbs',
     engine({
@@ -59,6 +64,7 @@ app.set('views', path.join(__dirname, 'resources', 'views'));
 //Routes init
 route(app);
 
+//Khai báo port
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
